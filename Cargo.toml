@@ -6,5 +6,9 @@ edition = "2024"
 [dependencies]
 iced = { version = "0.12", features = ["tokio"] }
 webbrowser = "0.8"
-chrono = "0.4"
-tokio = { version = "1.38", features = ["rt", "time"] }
+chrono = { version = "0.4", features = ["std", "clock"] }
+tokio = { version = "1.38", features = ["rt"] }
+
+[profile.release]
+strip = true  # Remove debug symbols
+opt-level = 3 # Maximum optimization
